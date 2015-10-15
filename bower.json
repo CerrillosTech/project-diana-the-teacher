@@ -1,0 +1,25 @@
+{
+  "name": "project-diana-the-teacher",
+  "version": "0.0.0",
+  "homepage": "https://github.com/CerrillosTech/project-diana-the-teacher",
+  "authors": [
+    "Carlos Cerrillos (carlos@cerrillostech.com) & Andy Marquez (bobii144@gmail.com)"
+  ],
+  "description": "",
+  "main": "index.htm",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.1.5",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.4"
+  }
+}
