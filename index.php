@@ -57,7 +57,7 @@ skel.layout({
 </script>
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<link rel="import" href="elements/polygrades-page.php">
+<link rel="import" href="elements/polygrades-page.htm">
 <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
 <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
 <link rel="import" href="bower_components/iron-selector/iron-selector.html">
