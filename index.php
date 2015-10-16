@@ -1,5 +1,9 @@
 <?
-$page = $_GET['p'];
+if(isset($_GET['p'])) {
+	$page = $_GET['p'];
+} else {
+	$page = "home";
+}
 ?>
 <!doctype html>
 <html>
