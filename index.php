@@ -167,6 +167,6 @@ tinymce.init({
 </style>
 </head>
 <body>
-<polygrades-page></polygrades-page>
+<polygrades-page page="<? echo $page; ?>"></polygrades-page>
 </body>
 </html>
