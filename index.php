@@ -1,3 +1,6 @@
+<?
+$page = $_GET['p'];
+?>
 <!doctype html>
 <html>
 <head>
