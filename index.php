@@ -9,7 +9,7 @@ if(isset($_GET['p'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>PolyQuiz</title>
+<title>PolyGrades</title>
 <script src="bower_components/skel/dist/skel.min.js"></script>
 <script src="bower_components/skel/dist/skel-layout.min.js"></script>
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
