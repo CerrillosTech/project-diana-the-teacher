@@ -144,7 +144,7 @@
 			this.$.mainPanel.responsiveWidth = "980px";
 			//this.$.mainPanel.forceNarrow = true;
 			this.fire('iron-signal', {name: 'hideshowevent', data: { show: this.$.mainPanel.narrow } });
-			this.$.sidebarMenu.select(this.sidebarpage);
+			this.page = this.page;
 			if(this.$.mainPanel.narrow){
 			//	this.$.scrollHeader.scrollAwayTopbar = true;
 			} else {
