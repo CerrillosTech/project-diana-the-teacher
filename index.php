@@ -180,6 +180,7 @@ tinymce.init({
 	page("/", home);
 	page("/home", home);
 	page("/students", students);
+	page("/assignments", assignments);
 	page("/settings", settings);
 	page({ hashbang: true });
 
@@ -188,6 +189,9 @@ tinymce.init({
 	}
 	function students() {
 		pgpage.page = "students";
+	}
+	function assignments() {
+		pgpage.page = "assignments";
 	}
 	function settings () {
 		pgpage.page = "settings";
