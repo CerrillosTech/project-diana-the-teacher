@@ -28,6 +28,7 @@
 	<link rel="import" href="pgpage-home.html">
 	<link rel="import" href="pgpage-students.html">
 	<link rel="import" href="pgpage-settings.html">
+	<link rel="import" href="pgpage-assignments.html">
 	
 	<style is="custom-style">
 	paper-drawer-panel {
@@ -61,6 +62,9 @@
 					<paper-icon-item on-click="goToPageOnClick" page="students">
 						<iron-icon icon="social:group" item-icon></iron-icon> Students
 					</paper-icon-item>
+					<paper-icon-item on-click="goToPageOnClick" page="assignments">
+						<iron-icon icon="icons:content-paste" item-icon></iron-icon> Assignments
+					</paper-icon-item>
 					<paper-icon-item on-click="goToPageOnClick" page="settings">
 						<iron-icon icon="icons:settings" item-icon></iron-icon> Settings
 					</paper-icon-item>
@@ -75,18 +79,21 @@
 						<paper-menu class="dropdown-content" on-iron-select="onSelectedChange">
 							<paper-icon-item id="home"><iron-icon icon="icons:home" item-icon></iron-icon>Home</paper-icon-item>
 							<paper-icon-item id="students"><iron-icon icon="icons:content-paste" item-icon></iron-icon>Take A Quiz</paper-icon-item>
+							<paper-icon-item id="assignments"><iron-icon icon="icons:content-paste" item-icon></iron-icon>Assignments</paper-icon-item>
 							<paper-icon-item id="settings"><iron-icon icon="icons:settings" item-icon></iron-icon>Manage</paper-icon-item>
 						</paper-menu>
 					</paper-menu-button>
 					<span class="title">PolyGrades 1.0</span>
 					<paper-button on-click="goToPageOnClick" class="smallbuttons" page="home"><iron-icon icon="icons:home"></iron-icon><span class="not-small"> Home</span></paper-button>
 					<paper-button on-click="goToPageOnClick" class="smallbuttons" page="students"><iron-icon icon="social:group"></iron-icon><span class="not-small"> Students</span></paper-button>
+					<paper-button on-click="goToPageOnClick" class="smallbuttons" page="assignments"><iron-icon icon="icons:content-paste"></iron-icon><span class="not-small"> Assignments</span></paper-button>
 					<paper-button on-click="goToPageOnClick" class="smallbuttons" page="settings"><iron-icon icon="icons:settings"></iron-icon><span class="not-small"> Settings</span></paper-button>
 					
 				</paper-toolbar>
 				<iron-pages id="pageSelector" attrForSelected="data-route">
 					<pgpage-home data-route="home"></pgpage-home>
 					<pgpage-students data-route="students"></pgpage-students>
+					<pgpage-assignments data-route="assignments"></pgpage-assignments>
 					<pgpage-settings data-route="settings"></pgpage-settings>
 				</iron-pages>
 				<content id="maincontainer">
