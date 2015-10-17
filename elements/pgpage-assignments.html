@@ -1,0 +1,99 @@
+<!doctype html>
+<dom-module id="assignment-delete-dialog">
+	<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+	<style is="custom-style">
+	paper-dialog {
+		background-color: white;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	</style>
+	<template>
+		<paper-dialog id="dialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+			<h2>Delete <span>[[label]]</span>?</h2>
+			<p>Are you sure you wish to delete it?</p>
+			<div class="buttons">
+				<paper-button dialog-dismiss>Cancel</paper-button>
+				<paper-button dialog-confirm>Delete</paper-button>
+			</div>
+		</paper-dialog>
+	</template>
+	<script>
+		Polymer({
+			is: "assignment-delete-dialog",
+			properties: {
+				label: {
+					type: String
+				}
+			},
+			open: function(label) {
+				this.label = label;
+				this.$.dialog.open();
+			},
+			ready: function() {
+
+			}
+		});
+	</script>
+</dom-module>
+<dom-module id="pgpage-assignments">
+	<link rel="import" href="../bower_components/paper-card/paper-card.html">
+	<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="../bower_components/iron-icons/editor-icons.html">
+	<link rel="import" href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+	<style is="custom-style">
+		paper-material {
+			background-color: white;
+			margin-top: 10px;
+			padding: 10px;
+		}
+		paper-card {
+			width: 100%;
+			margin-top: 10px;
+		}
+	</style>
+	<template>
+		<div class="container">
+			<assignment-delete-dialog id="deleteDialog"></assignment-delete-dialog>
+			<div class="row">
+				<div class="12u">
+					<paper-card heading="Assignment 1">
+						<div class="card-content"><i>Optional</i> Discription</div>
+						<div class="card-actions layout horizontal end-justified">
+							<paper-button>myAction</paper-button>
+							<paper-icon-button icon="editor:mode-edit"></paper-icon-button>
+							<paper-icon-button icon="icons:delete" data-deleteid="Assignment 1"></paper-icon-button>
+						</div>
+					</paper-card>
+				</div>
+				<div class="12u">
+					<paper-card heading="Assignment 2">
+						<div class="card-content"><i>Optional</i> Discription</div>
+						<div class="card-actions">
+							<paper-button>myAction</paper-button>
+						</div>
+					</paper-card>
+				</div>
+			</div>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: "pgpage-assignments",
+			deleteDialog: function(e) {
+				var label = "";
+				if(e.target.getAttribute("data-deleteid") != null){
+					label = e.target.getAttribute("data-deleteid");
+				} else if(e.target.parentElement.getAttribute("data-deleteid") != null){
+					label = e.target.parentElement.getAttribute("data-deleteid");
+				} else {
+					return;
+				}
+				this.$.deleteDialog.open(label);
+			},
+			ready: function(){
+				
+			}
+		});
+	</script>
+</dom-module>
