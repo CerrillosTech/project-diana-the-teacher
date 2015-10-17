@@ -1,18 +1,52 @@
 <!doctype html>
 <dom-module id="pgpage-students">
+	<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
 	<style is="custom-style">
 		paper-material {
 			background-color: white;
-			margin: 20px;
+			margin: 10px;
 			padding: 10px;
+		}
+		paper-card {
+			width: 100%;
+			margin: 10px;
 		}
 	</style>
 	<template>
-		<paper-material>
-			My Students Page!!
-			<marquee direction="left" truespeed="60"><h1>Students!</h1></marquee>
-			<marquee direction="right" truespeed="60"><h1>Page!</h1></marquee>
-		</paper-material>
+		<div class="container">
+			<div class="12u">
+				<paper-material>
+					My Students Page!!
+					<marquee direction="left" truespeed="60"><h1>Students!</h1></marquee>
+					<marquee direction="right" truespeed="60"><h1>Page!</h1></marquee>
+				</paper-material>
+				<paper-material>
+					<div class="row">
+						<div class="4u">Name</div>
+						<div class="4u">Overall Grade</div>
+						<div class="4u">Actions</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<paper-button>New Student</paper-button>
+						</div>
+					</div>
+				</paper-material>
+				<paper-card heading="TEst test">
+					<div class="card-content">Testy!</div>
+					<div class="card-actions">
+						<paper-button>myAction</paper-button>
+					</div>
+				</paper-card>
+				<paper-card heading="TEst test">
+					<div class="card-content">Testy!</div>
+					<div class="card-actions">
+						<paper-button>myAction</paper-button>
+					</div>
+				</paper-card>
+			</div>
+		</div>
 	</template>
 	<script>
 		Polymer({
