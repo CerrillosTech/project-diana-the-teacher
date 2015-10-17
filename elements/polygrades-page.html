@@ -23,6 +23,11 @@
 	<link rel="import" href="../bower_components/iron-signals/iron-signals.html">
 	<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 	<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+	<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+	
+	<link rel="import" href="pgpage-home.html">
+	<link rel="import" href="pgpage-students.html">
+	<link rel="import" href="pgpage-settings.html">
 	
 	<style is="custom-style">
 	paper-drawer-panel {
@@ -79,6 +84,11 @@
 					<paper-button on-click="goToPageOnClick" class="smallbuttons" page="settings"><iron-icon icon="icons:settings"></iron-icon><span class="not-small"> Settings</span></paper-button>
 					
 				</paper-toolbar>
+				<iron-pages id="pageSelector" attrForSelected="data-route">
+					<pgpage-home data-route="home"></pgpage-home>
+					<pgpage-students data-route="students"></pgpage-students>
+					<pgpage-settings data-route="settings"></pgpage-settings>
+				</iron-pages>
 				<content id="maincontainer">
 				
 				
@@ -109,25 +119,34 @@
 			for(var x = 0; x < this.$.sidebarMenu.items.length; x++){
 				if(this.$.sidebarMenu.items[x].getAttribute("page") == e){
 					this.$.sidebarMenu.select(this.$.sidebarMenu.indexOf(this.$.sidebarMenu.items[x]));
-					return;
+					break;
+				}
+			}
+			for(var x = 0; x < this.$.pageSelector.items.length; x++){
+				if(this.$.pageSelector.items[x].getAttribute("data-route") == e){
+					this.$.pageSelector.select(this.$.pageSelector.indexOf(this.$.pageSelector.items[x]));
+					break;
 				}
 			}
 		},
 		onSelectedChange: function(d){
-			this.goToPage(d.detail.item.id);
+			//this.goToPage(d.detail.item.id);
 		},
 		goToPage: function(page){
 			if(page != null){
-				this.page = page;
+				page("/" + page);
+				//this.page = page;
 			} else {
 				this.fireToastNonEvent("Page Does Not Exist! :'[");
 			}
 		},
 		goToPageOnClick: function(e){
 			if(e.target.getAttribute("page") != null){
-				this.page = e.target.getAttribute("page");
+				page("/" + e.target.getAttribute("page"));
+				//this.page = e.target.getAttribute("page");
 			} else if(e.target.parentElement.getAttribute("page") != null) {
-				this.page = e.target.parentElement.getAttribute("page");
+				page("/" + e.target.parentElement.getAttribute("page"));
+				//this.page = e.target.parentElement.getAttribute("page");
 			} else {
 				this.fireToastNonEvent("Page Does Not Exist! :'[");
 			}
@@ -144,7 +163,7 @@
 			this.$.mainPanel.responsiveWidth = "980px";
 			//this.$.mainPanel.forceNarrow = true;
 			this.fire('iron-signal', {name: 'hideshowevent', data: { show: this.$.mainPanel.narrow } });
-			this.$.sidebarMenu.select(this.sidebarpage);
+			this.page = this.page;
 			if(this.$.mainPanel.narrow){
 			//	this.$.scrollHeader.scrollAwayTopbar = true;
 			} else {
