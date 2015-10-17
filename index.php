@@ -64,7 +64,7 @@ skel.layout({
 </script>
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<link rel="import" href="elements/polygrades-page.htm">
+<link rel="import" href="elements/polygrades-page.html">
 <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
 <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
 <link rel="import" href="bower_components/iron-selector/iron-selector.html">
@@ -72,6 +72,8 @@ skel.layout({
 <link rel="import" href="bower_components/iron-icons/image-icons.html">
 <link rel="import" href="bower_components/iron-form/iron-form.html">
 <link rel="import" href="bower_components/paper-material/paper-material.html">
+<script src="bower_components/page/page.js"></script>
+
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -141,7 +143,11 @@ tinymce.init({
 			color: #2196F3;
 		}
 	}
-
+	paper-material {
+		background-color: white;
+		margin: 20px;
+		padding: 10px;
+	}
 	.list {
 		padding-top: 12px;
 		background-color: white;
@@ -167,6 +173,25 @@ tinymce.init({
 </style>
 </head>
 <body>
-<polygrades-page page="<? echo $page; ?>"></polygrades-page>
+<polygrades-page page="<? echo $page; ?>" id="mainapp"></polygrades-page>
+<script type="text/javascript">
+	var pgpage = document.querySelector("#mainapp");
+
+	page("/", home);
+	page("/home", home);
+	page("/students", students);
+	page("/settings", settings);
+	page({ hashbang: true });
+
+	function home() {
+		pgpage.page = "home";
+	}
+	function students() {
+		pgpage.page = "students";
+	}
+	function settings () {
+		pgpage.page = "settings";
+	}
+</script>
 </body>
 </html>
