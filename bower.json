@@ -22,6 +22,7 @@
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
     "iron-elements": "PolymerElements/iron-elements#~1.0.4",
     "skel": "~3.0.0",
-    "tinymce": "~4.2.6"
+    "tinymce": "~4.2.6",
+    "page": "page.js#~1.6.4"
   }
 }
